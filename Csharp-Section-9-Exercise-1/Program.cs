@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CsharpSection9Exercise1
 {
@@ -10,16 +11,16 @@ namespace CsharpSection9Exercise1
         {
             //Exercise 1- Write a program that reads a text file and displays the number of words.
 
-            var path = @"/Users/faysalregal/Desktop/C# Fundamentals/Section 9 Working with Files/Exercises/Exercise 1/Exercise-1-Text-File/Exercise-1";
+            var path = @"C:\Users\FaysalRegal\Desktop\C# Course\Section 9 - Working with Files\Exercises\Exercise 1\Path1\random.txt";
 
-            // Calling the ReadAllText(String, Encoding)
-            // function
+            // Calling the ReadAllText(String, Encoding) function
             string readText = File.ReadAllText(path);
+            readText = Regex.Replace(readText, @"\s", "");
+            char[] userInput = readText.ToCharArray();
 
             // Printing the file contents
-            Console.WriteLine(readText.Length);
+            Console.WriteLine(userInput.Length);
 
-            //remember to split the sentence and count only the letters
         }
     }
 }
